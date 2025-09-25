@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO: Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <title>Social Me</title>
+    <meta name="description" content="Social Me: A central hub for all of Chris Pirillo's social media profiles, projects, events, and contact information. Connect with Chris across the web.">
+    <meta name="keywords" content="Social Me, social media, links, tech, vlogger, influencer, LockerGnome, MakerDeck, CTRL+ALT+CREATE">
+    <meta name="author" content="Chris Pirillo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://pirillo.com/arcade/social-me.html">
+
+    <!-- SEO: Open Graph / Facebook Card -->
+    <meta property="og:title" content="Social Me - Chris Pirillo">
+    <meta property="og:description" content="A central hub for all of Chris Pirillo's social media profiles, projects, and events.">
+    <meta property="og:image" content="https://pirillo.com/arcade/images/social-me.png">
+    <meta property="og:url" content="https://pirillo.com/arcade/social-me.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chris Pirillo's Arcade">
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ChrisPirillo">
+    <meta name="twitter:creator" content="@ChrisPirillo">
+    <meta name="twitter:title" content="Social Me - Chris Pirillo">
+    <meta name="twitter:description" content="A central hub for all of Chris Pirillo's social media profiles, projects, and events.">
+    <meta name="twitter:image" content="https://pirillo.com/arcade/images/social-me.png">
+
+    <!-- Performance: Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Source+Code+Pro:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Source+Code+Pro:wght@400;600&display=swap"></noscript>
+    
+    <!-- Core Vitals: Asynchronously loaded stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CQ4D3VQ3L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1CQ4D3VQ3L');
+    </script>
+
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --glow-cyan: rgba(0, 255, 255, 1);
+            --glow-magenta: rgba(252, 0, 255, 1);
+            --bg-color: #0A0A10;
+        }
+        body {
+            font-family: 'Source Code Pro', monospace;
+            background-color: var(--bg-color);
+            color: #d1d5db;
+            overflow-x: hidden;
+        }
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .font-pixel {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .text-glow-cyan { text-shadow: 0 0 8px var(--glow-cyan), 0 0 12px var(--glow-cyan); }
+        .text-glow-magenta { text-shadow: 0 0 8px var(--glow-magenta), 0 0 12px var(--glow-magenta); }
+        .logo {
+            width: 96px;
+            height: 96px;
+            border-radius: 9999px;
+            border: 3px solid var(--glow-cyan);
+            box-shadow: 0 0 15px var(--glow-cyan), inset 0 0 10px rgba(0, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 3s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 15px var(--glow-cyan), inset 0 0 10px rgba(0, 255, 255, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px var(--glow-cyan), inset 0 0 15px rgba(0, 255, 255, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 15px var(--glow-cyan), inset 0 0 10px rgba(0, 255, 255, 0.3); }
+        }
+        .link-item {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease-in-out;
+            color: #9ca3af;
+        }
+        .link-item .icon {
+            color: rgba(0, 255, 255, 0.7);
+            transition: color 0.3s ease-in-out;
+        }
+        .link-item:hover {
+            transform: translateY(-4px) scale(1.02);
+            background: rgba(0, 255, 255, 0.05);
+            border-color: var(--glow-cyan);
+            color: #ffffff;
+        }
+        .link-item:hover .icon {
+            color: var(--glow-cyan);
+        }
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.4s ease-in-out;
+        }
+        .link-item:hover::before {
+            left: 100%;
+        }
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--glow-magenta);
+            background: rgba(252, 0, 255, 0.1);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease-in-out;
+            color: #e5e7eb;
+            font-weight: 600;
+        }
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            background: rgba(252, 0, 255, 0.2);
+            box-shadow: 0 0 15px var(--glow-magenta);
+            color: #ffffff;
+        }
+        .cta-button .icon {
+            color: var(--glow-magenta);
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    
+    <!-- SEO: JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Social Me - Chris Pirillo",
+      "url": "https://pirillo.com/arcade/social-me.html",
+      "description": "A central hub for all of Chris Pirillo's social media profiles, projects, events, and contact information.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Chris Pirillo",
+        "url": "https://pirillo.com/",
+        "image": "https://pirillo.com/arcade/images/social-me.png",
+        "sameAs": [
+          "https://www.youtube.com/@ChrisPirillo",
+          "https://twitch.tv/ChrisPirillo",
+          "https://chrispirillo.substack.com/",
+          "https://mastodon.social/@ChrisPirillo",
+          "https://x.com/ChrisPirillo",
+          "https://threads.net/@ChrisPirillo",
+          "https://www.tiktok.com/@chrispirillo",
+          "https://instagram.com/ChrisPirillo",
+          "https://www.facebook.com/profile.php?id=61572258946445",
+          "https://discord.gg/nEM8Ycy5vJ",
+          "https://www.linkedin.com/in/chrispirillo/",
+          "https://github.com/chrispirillo",
+          "https://bsky.app/profile/chrispirillo.bsky.social",
+          "https://www.reddit.com/user/chrispirillo",
+          "https://www.patreon.com/chrispirillo",
+          "https://chrispirillo.tumblr.com/"
+        ]
+      }
+    }
+    </script>
+</head>
+<body class="p-4">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <div class="container mx-auto min-h-screen flex items-center justify-center">
+        <main class="w-full max-w-2xl mx-auto text-center" role="main">
+            
+            <header class="mb-10 w-full">
+                <div class="flex flex-col items-center">
+                    <div class="flex flex-col md:flex-row items-center justify-center">
+                        <div class="logo mr-0 md:mr-5 mb-4 md:mb-0 flex-shrink-0 fade-in-up" style="animation-delay: 0.2s;" role="img" aria-label="Chris Pirillo Logo">
+                            <span class="font-pixel text-4xl text-glow-cyan">CP</span>
+                        </div>
+                        <h1 class="font-pixel text-4xl sm:text-5xl text-glow-cyan text-center md:text-left fade-in-up" style="animation-delay: 0.5s;">Chris Pirillo</h1>
+                    </div>
+                </div>
+            </header>
+
+            <section aria-labelledby="social-links-heading">
+                <h2 id="social-links-heading" class="font-pixel text-2xl text-glow-cyan mb-4 fade-in-up" style="animation-delay: 0.8s;">Social Links</h2>
+                <div id="social-links" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    <!-- Links will be injected by JS -->
+                </div>
+            </section>
+            
+            <section class="mt-12" aria-labelledby="projects-heading">
+                <h2 id="projects-heading" class="font-pixel text-2xl text-glow-cyan mb-4 fade-in-up" style="animation-delay: 1.4s;">Projects & Events</h2>
+                <div id="project-links" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                   <!-- Projects will be injected by JS -->
+                </div>
+            </section>
+            
+            <footer class="mt-12 text-cyan-500 text-xs opacity-60">
+                <div class="fade-in-up" style="animation-delay: 2.0s;">
+                    <p class="mt-2">Transmission End // &copy; <span id="copyright-year"></span> Chris Pirillo</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT IS UNCHANGED PER INSTRUCTIONS -->
+    <script>
+        const socialLinks = [
+            { name: 'Get In Touch', url: 'mailto:chris@pirillo.com', icon: 'mail-check' },
+            { name: 'Website', url: 'https://pirillo.com/', icon: 'globe' },
+            { name: 'YouTube', url: 'https://www.youtube.com/@ChrisPirillo', icon: 'youtube' },
+            { name: 'Twitch', url: 'https://twitch.tv/ChrisPirillo', icon: 'twitch' },
+            { name: 'Substack', url: 'https://chrispirillo.substack.com/', icon: 'newspaper' },
+            { name: 'Mastodon', url: 'https://mastodon.social/@ChrisPirillo', icon: 'at-sign' },
+            { name: 'X', url: 'https://x.com/ChrisPirillo', icon: 'twitter' },
+            { name: 'Threads', url: 'https://threads.net/@ChrisPirillo', icon: 'message-circle' },
+            { name: 'TikTok', url: 'https://www.tiktok.com/@chrispirillo', icon: 'music' },
+            { name: 'Instagram', url: 'https://instagram.com/ChrisPirillo', icon: 'instagram' },
+            { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61572258946445', icon: 'facebook' },
+            { name: 'Discord', url: 'https://discord.gg/nEM8Ycy5vJ', icon: 'message-square' },
+            { name: 'Amazon', url: 'https://www.amazon.com/hz/wishlist/ls/F2I2ETQ5R8D5/', icon: 'shopping-cart' },
+            { name: 'LinkedIn', url: 'https://www.linkedin.com/in/chrispirillo/', icon: 'linkedin' },
+            { name: 'GitHub', url: 'https://github.com/chrispirillo', icon: 'github' },
+            { name: 'BlueSky', url: 'https://bsky.app/profile/chrispirillo.bsky.social', icon: 'cloud' },
+            { name: 'Reddit', url: 'https://www.reddit.com/user/chrispirillo', icon: 'message-circle' },
+            { name: 'Patreon', url: 'https://www.patreon.com/chrispirillo', icon: 'heart' },
+            { name: 'Tumblr', url: 'https://chrispirillo.tumblr.com/', icon: 'bold' }
+        ];
+        const projectLinks = [
+            { name: 'My Arcade', url: 'https://pirillo.com/arcade/', icon: 'gamepad-2' },
+            { name: 'CTRL+ALT+CREATE', url: 'https://ctrlaltcreate.live/', icon: 'calendar-check' },
+            { name: 'MakerDeck', url: 'https://makerdeck.net/', icon: 'box' },
+            { name: 'LockerGnome', url: 'https://lockergnome.net/', icon: 'hard-drive' }
+        ];
+        function createLink(link, delay) {
+            const itemClass = link.name === 'Get In Touch' ? 'cta-button' : 'link-item';
+            return `
+                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="${itemClass} flex items-center justify-center p-3 rounded-lg fade-in-up" style="animation-delay: ${delay}s;">
+                    <i class="w-5 h-5 mr-2 icon" data-lucide="${link.icon}"></i>
+                    <span class="font-semibold text-sm">${link.name}</span>
+                </a>`;
+        }
+        const socialLinksContainer = document.getElementById('social-links');
+        socialLinks.forEach((link, index) => {
+            socialLinksContainer.innerHTML += createLink(link, 0.9 + index * 0.05);
+        });
+        const projectLinksContainer = document.getElementById('project-links');
+        projectLinks.forEach((link, index) => {
+            projectLinksContainer.innerHTML += createLink(link, 1.5 + index * 0.05);
+        });
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+        document.addEventListener('mousemove', (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+        });
+        class Star {
+            constructor(x, y, z) {
+                this.x = x; this.y = y; this.z = z;
+                this.size = 0.5 + Math.random();
+            }
+            update() {
+                this.z -= 1.5;
+                if (this.z <= 0) {
+                    // BUGFIX: Instead of giving the star a new random X/Y position (which causes the "restarting" look),
+                    // we now only reset its Z-depth. This preserves its trajectory, creating a seamless,
+                    // continuous tunnel effect instead of a stuttering one.
+                    this.z += canvas.width;
+                }
+            }
+            draw() {
+                const sx = (this.x / this.z) * canvas.width / 2 + canvas.width / 2;
+                const sy = (this.y / this.z) * canvas.height / 2 + canvas.height / 2;
+                if (sx < 0 || sx > canvas.width || sy < 0 || sy > canvas.height) { return; }
+                const r = this.size * (1 - this.z / canvas.width) * 3;
+                const dx = (mouse.x - canvas.width / 2) / 200;
+                const dy = (mouse.y - canvas.height / 2) / 200;
+                ctx.beginPath();
+                ctx.arc(sx - dx, sy - dy, r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${1 - this.z / canvas.width})`;
+                ctx.fill();
+            }
+        }
+        const stars = Array.from({ length: 800 }, () => new Star(
+            (Math.random() - 0.5) * canvas.width * 2,
+            (Math.random() - 0.5) * canvas.height * 2,
+            Math.random() * canvas.width 
+        ));
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => { star.update(); star.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+      // The lucide script is deferred, so we need to wait for the DOM to be fully loaded
+      // before we can call its functions to prevent a ReferenceError.
+      document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+      });
+    </script>
+</body>
+</html>
+
+
+
